@@ -1,0 +1,23 @@
+services:
+  api:
+    build:
+      dockerfile: WebApi/Dockerfile
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+  
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    restart: always
+
+
+
+
